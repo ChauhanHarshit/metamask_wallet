@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/metamask_Wallet_backend"
+]
+resolver = "2"

@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "metamask_Wallet_backend": {
+      "candid": "src/metamask_Wallet_backend/metamask_Wallet_backend.did",
+      "package": "metamask_Wallet_backend",
+      "type": "rust"
+    },
+    "metamask_Wallet_frontend": {
+      "dependencies": [
+        "metamask_Wallet_backend"
+      ],
+      "source": [
+        "src/metamask_Wallet_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "metamask_Wallet_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
