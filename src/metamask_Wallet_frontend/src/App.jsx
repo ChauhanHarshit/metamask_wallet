@@ -1,31 +1,55 @@
-import { useState } from 'react';
-import { metamask_Wallet_backend } from 'declarations/metamask_Wallet_backend';
+import {
+  MetaMaskButton,
+  useAccount,
+  useSDK,
+  useSignMessage,
+} from "@metamask/sdk-react-ui";
+import "./index.css";
 
-function App() {
-  const [greeting, setGreeting] = useState('');
+function AppReady() {
+  const {
+    data: signData,
+    isError: isSignError,
+    isLoading: isSignLoading,
+    isSuccess: isSignSuccess,
+    signMessage,
+  } = useSignMessage({
+    message: "gm wagmi frens",
+  });
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    metamask_Wallet_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
+  const { isConnected } = useAccount();
 
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <div className="App">
+      <header className="App-header">
+        <MetaMaskButton theme={"light"} color="white"></MetaMaskButton>
+        {isConnected && (
+          <>
+            <div style={{ marginTop: 20 }}>
+              <button
+                disabled={isSignLoading}
+                onClick={() => signMessage()}
+              >
+                Sign message
+              </button>
+              {isSignSuccess && <div>Signature: {signData}</div>}
+              {isSignError && <div>Error signing message</div>}
+            </div>
+          </>
+        )}
+      </header>
+    </div>
   );
+}
+
+function App() {
+  const { ready } = useSDK();
+
+  if (!ready) {
+    return <div>Loading...</div>;
+  }
+
+  return <AppReady />;
 }
 
 export default App;

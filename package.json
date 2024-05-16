@@ -14,5 +14,9 @@
   "type": "module",
   "workspaces": [
     "src/metamask_Wallet_frontend"
-  ]
+  ],
+  "dependencies": {
+    "@metamask/sdk-react": "^0.20.2",
+    "@metamask/sdk-react-ui": "^0.20.2"
+  }
 }

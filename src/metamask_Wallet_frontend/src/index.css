@@ -1,0 +1,59 @@
+/* BuySellForm.css */
+body {
+  background-color: black;
+  display: flex; /* Align everything in the center */
+  justify-content: center;
+  /* align-items: center; */
+  height: 100vh; /* Make sure the body takes up the entire viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+.buy-sell-form {
+  width: 100%; /* Adjust width as needed */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Add border with shadow */
+  border-radius: 10px; /* Make border rounded */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+  background-color: white;
+  padding: 40px;
+  margin-top: 2rem;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: calc(100% - 20px);/* Adjust width to leave space for padding */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%; /* Button takes full width */
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px; /* Adjust top margin */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.result{
+  color:white;
+  margin-left: 5rem;
+  margin-top: 5rem;
+}
